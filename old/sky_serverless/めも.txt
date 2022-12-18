@@ -1,0 +1,11 @@
+//    input_text = event['queryStringParameters']['input_text']
+    
+    print(event['body'])
+    
+//    if(!input_text){
+    body = json.loads(event['body'])
+    input_text = body['input_text']
+//    }
+
+    if event['body'] != None:
+

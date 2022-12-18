@@ -1,0 +1,21 @@
+
+AWS公式トレーニング
+AWS ホワイトペーパー
+
+AWS公式サイトには、無料デジタルコース（AWS クラウドプラクティショナーの基礎知識 （第 2 版））が用意されています
+https://aws.amazon.com/jp/training/course-descriptions/cloud-practitioner-essentials/
+
+
+AWS ホワイトペーパーとガイド
+https://aws.amazon.com/jp/whitepapers/?whitepapers-main.sort-by=item.additionalFields.sortDate&whitepapers-main.sort-order=desc&awsf.whitepapers-content-type=*all&awsf.whitepapers-tech-category=*all&awsf.whitepapers-industries=*all&awsf.whitepapers-business-category=*all&awsf.whitepapers-global-methodology=*all
+
+
+AWS公式サイトでは、サンプル問題と模擬試験があります。
+
+AWS認定資格試験テキスト　AWS認定 クラウドプラクティショナー
+単行本と電子書籍（Kindle版）があります。
+
+『AWS認定資格試験テキスト AWS認定 クラウドプラクティショナー』を2周
+Udemy『この問題だけで合格可能！AWS 認定クラウドプラクティショナー 模擬試験問題集（7回分455問）』を2周
+
+

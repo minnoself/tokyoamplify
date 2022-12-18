@@ -1,0 +1,143 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>HTTP if test</title>
+  <script type="text/javascript">
+    function sendRequest(method, uri, body, type, token) {
+      document.forms.id_form1.id_status.value = '';
+      document.forms.id_form1.id_resbody.value = '';
+      document.forms.id_form1.id_restype.value = '';
+      if (method == null || method == '') {
+        method = 'GET';
+        document.forms.id_form1.id_method.value = method;
+      }
+      if (uri == null || uri == '') {
+        uri = '/';
+        document.forms.id_form1.id_url.value = uri;
+      }
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.withCredentials = false;
+      xmlhttp.open(method, uri, true);
+
+      xmlhttp.onreadystatechange = function () {
+
+        switch (xmlhttp.readyState) {
+          case 2:
+            break;
+          case 3:
+            break;
+          case 4:
+            document.forms.id_form1.id_status.value = xmlhttp.status;
+            document.forms.id_form1.id_resbody.value = xmlhttp.response;
+            document.forms.id_form1.id_restype.value = xmlhttp.getResponseHeader('Content-Type');
+            break;
+          default:
+            break;
+        }
+      }
+      if (type != null && type != '') {
+        xmlhttp.setRequestHeader('Content-Type', type);
+      }
+
+      if (body) {
+        xmlhttp.send(body);
+      }
+      else {
+        xmlhttp.send();
+      }
+    }
+
+    function send() {
+      var method = document.forms.id_form1.id_method.value;
+      var uri = document.forms.id_form1.id_server.value + document.forms.id_form1.id_endpoint.value;
+      var body = document.forms.id_form1.id_body.value;
+      var type = document.forms.id_form1.id_type.value;
+
+      sendRequest(method, uri, body, type, '');
+    }
+
+    function setDelete() {
+      document.forms.id_form1.id_method.value = 'DELETE';
+      document.forms.id_form1.id_endpoint.value = '/translated-data';
+      document.forms.id_form1.id_body.value = '{"timestamp": "20220418143158"}';
+      document.forms.id_form1.id_type.value = 'application/json';
+    }
+
+    function setPost() {
+      document.forms.id_form1.id_method.value = 'POST';
+      document.forms.id_form1.id_endpoint.value = '/translate';
+      document.forms.id_form1.id_body.value = '{"input_text": "????"}';
+      document.forms.id_form1.id_type.value = 'application/json';
+    }
+
+    function setGet() {
+      document.forms.id_form1.id_method.value = 'GET';
+      document.forms.id_form1.id_endpoint.value = '/translated-data';
+      document.forms.id_form1.id_body.value = '';
+      document.forms.id_form1.id_type.value = '';
+    }
+
+  </script>
+</head>
+
+<body>
+  <form name="form1" id="id_form1" action="" method="post">
+
+    <p>?e???v???[?g?F
+      <br />
+      <input type="button" value="???K??è‡@" onclick="setPost();" />
+      <input type="button" value="???K??è‡A" onclick="setGet();" />
+      <input type="button" value="???K??è‡B" onclick="setDelete();" />
+      ?@?@
+    </p>
+
+    <p>Server?F<font color="red" size="2">APIGeteway > ?X?e?[?W > ?X?e?[?W?? ?I??Ì[URL ???„‘o??:XXX]?ÌXXX?ð“ü?????????????iEndpoint????????????????j
+      </font>
+      <br />
+      <input type="text" name="method" id="id_server" size="100"
+        value="https://n01gz6zzu0.execute-api.ap-northeast-1.amazonaws.com/dev">
+    </p>
+
+    <p>Endpoint?F
+      <br />
+      <input type="text" name="endpiont" id="id_endpoint" size="100">
+    </p>
+    
+    <p>Method?F
+      <br />
+      <input type="text" name="method" id="id_method" size="20">
+    </p>
+
+    <p>???N?G?X?g Body:
+      <br />
+      <textarea name="body" id="id_body" rows="10" cols="80" wrap="hard"></textarea>
+    </p>
+    <p>???N?G?X?g Content-Type?F
+      <br />
+      <input type="text" name="type" id="id_type" size="20">
+    </p>
+    <p><input type="button" value="???N?G?X?g???M" onclick="send();" /></p>
+
+    <br />
+    <hr />
+    <br />
+
+    <p>???X?|???X ?R?[?h:
+      <br />
+      <input type="text" name="status" id="id_status" size="20">
+    </p>
+    <p>???X?|???X Content-Type:
+      <br />
+      <input type="text" name="restype" id="id_restype" size="20">
+    </p>
+    <p>???X?|???X Body:
+      <br />
+      <textarea name="resbody" id="id_resbody" rows="10" cols="80" wrap="hard"></textarea>
+    </p>
+
+  </form>
+
+</body>
+
+</html>
